@@ -21,14 +21,6 @@ RUN apt-get install -y git colordiff colortail unzip vim tmux curl telnet strace
 # secLists!
 RUN git clone https://github.com/danielmiessler/SecLists /usr/share/seclists
 
-# May add this back in at some point, for now we use burp suite
-# w3af
-# RUN git clone https://github.com/andresriancho/w3af.git /opt/w3af && \
-#     apt-get install -y libssl-dev libxml2-dev libxslt1-dev zlib1g-dev python-dev python-pybloomfiltermmap ; \
-#     /opt/w3af/w3af_console ; \
-#     bash /tmp/w3af_dependency_install.sh ; \
-#     echo 'export PATH=/opt/w3af:$PATH' >> /etc/profile
-
 # nmapAutomator
 RUN git clone https://github.com/21y4d/nmapAutomator.git /tools/nmapAutomator \
     && ln -s /tools/nmapAutomator/nmapAutomator.sh /usr/local/bin/nmapAutomator
