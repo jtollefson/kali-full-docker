@@ -26,9 +26,15 @@ RUN git clone https://github.com/21y4d/nmapAutomator.git /tools/nmapAutomator \
     && ln -s /tools/nmapAutomator/nmapAutomator.sh /usr/local/bin/nmapAutomator
 
 # Install vimrc awesome
-RUN git clone --depth=1 https://github.com/amix/vimrc.git ~/.vim_runtime && \
-    bash ~/.vim_runtime/install_awesome_vimrc.sh && \
-    python3 ~/.vim_runtime/update_plugins.py
+RUN git clone --depth=1 https://github.com/amix/vimrc.git ~/.vim_runtime \
+    && bash ~/.vim_runtime/install_awesome_vimrc.sh \
+    && python3 ~/.vim_runtime/update_plugins.py
+
+# Install subscraper
+RUN git clone https://github.com/m8r0wn/subscraper /tools/subscraper \
+    && cd /tools/subscraper \
+    && pip3 install -r requirements.txt \
+    && ln -s /tools/subscraper/subscraper.py /usr/local/bin/subscraper
 
 # virtualenv config
 RUN pip install virtualenvwrapper && \
