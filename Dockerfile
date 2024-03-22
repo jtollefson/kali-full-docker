@@ -36,8 +36,12 @@ RUN git clone https://github.com/m8r0wn/subscraper /tools/subscraper \
     && pip3 install -r requirements.txt \
     && ln -s /tools/subscraper/subscraper.py /usr/local/bin/subscraper
 
-# WebCoPilot
-RUN git clone https://github.com/h4r5h1t/webcopilot && cd webcopilot/ && chmod +x webcopilot install.sh && mv webcopilot /usr/bin/ && ./install.sh
+# WebCopilot
+RUN git clone https://github.com/h4r5h1t/webcopilot \
+    && cd webcopilot/ \
+    && chmod +x webcopilot install.sh \
+    && mv webcopilot /usr/bin/ \
+    && ./install.sh
 
 # virtualenv config
 RUN pip install virtualenvwrapper && \
